@@ -2,6 +2,7 @@
   <div>
     <header class="header">
       <h1>Cosméticos Fortnite</h1>
+      <p>Hoy es {{ currentDate }}</p>
     </header>
 
     <div class="cosmetics-container">
@@ -54,7 +55,12 @@ async function cargarCosmeticosFortnite() {
     console.error(error);
   }
 }
-
+const currentDate = new Date().toLocaleDateString('es-ES', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
 onMounted(async () => {
   cargarCosmeticosFortnite(); 
 });
